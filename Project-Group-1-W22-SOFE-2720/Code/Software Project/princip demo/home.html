@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title> 
+<link rel="stylesheet" href="styleSheet.css">
+<script src="javaScript.js"></script>
+    
+</head>
+<body>
+<! use this div for all webpages to for the top bar !>
+<div id="navbar">
+    <a href="home.html">Home</a>
+    <a href="Cart.html">Cart</a>
+    <a href="OrderHistory.html">Order History</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+<div id="welcome">
+  <h1>Great deals today!</h1>
+</div>
+
+<div class="card">
+  <img src="./Photos/1.jpg" alt="Samsung S21" style="width:100%">
+  <h1>Samsung S21</h1>
+  <p class="price" id="price1">$899.99</p>
+    <p id="stock1">Stock: 7</p>
+  <p>Meet Galaxy S21 5G</p>
+  <p><button id="button1">Add to Cart</button></p>
+</div>
+
+<div class="card">
+    <img src="./Photos/2.jpg" alt="wireless" style="width:100%">
+    <h1>Wireless Charger</h1>
+    <p class="price" id="price2">$19.99</p>
+    <p id="stock2">Stock: 20</p>
+    <p>Charge your phone wirelessly</p>
+    <p><button id="button2">Add to Cart</button></p>
+</div>
+
+<div class="card">
+    <img src="./Photos/3.jpg" alt="Samsung S21 Case" style="width:100%">
+    <h1>Samsung S21 Case</h1>
+    <p class="price" id="price3">$9.99</p>
+    <p id="stock3">Stock: 15</p>
+    <p>Galaxy S21 Case</p>
+    <p><button id="button3">Add to Cart</button></p>
+</div>
+
+<div class="card">
+    <img src="./Photos/4.jpg" alt="woosh" style="width:100%">
+    <h1>Woosh! Screen Cleaner</h1>
+    <p class="price" id="price4">$25.99</p>
+    <p id="stock4">Stock: 50</p>
+    <p>Keep your screen clean!</p>
+    <p><button id="button4">Add to Cart</button></p>
+</div>
+
+<script type="text/javascript">
+
+    let s21 = 0;
+    let charger = 0;
+    let s21case = 0;
+    let woosh = 0;
+
+    let s21stock = 7;
+    let chargerstock = 20;
+    let s21casestock = 15;
+    let wooshstock = 50;
+
+
+    document.getElementById("button1").addEventListener("click", function () {
+        s21 += 1;
+        s21stock -= 1;
+        localStorage.s21 = s21;
+        localStorage.s21stock = s21stock;
+        document.getElementById('stock1').innerHTML = "Stock: " + localStorage.s21stock;
+    });
+    document.getElementById("button2").addEventListener("click", function () {
+        charger += 1;
+        chargerstock -= 1;
+        localStorage.charger = charger;
+        localStorage.chargerstock = chargerstock;
+        document.getElementById('stock2').innerHTML = "Stock: " + localStorage.chargerstock;
+    });
+    document.getElementById("button3").addEventListener("click", function () {
+        s21case += 1;
+        s21casestock -= 1;
+        localStorage.s21case = s21case;
+        localStorage.s21casestock;
+        document.getElementById('stock3').innerHTML = "Stock: " + localStorage.s21casestock;
+    });
+    document.getElementById("button4").addEventListener("click", function () {
+        woosh += 1;
+        wooshstock -= 1;
+        localStorage.woosh = woosh;
+        localStorage.wooshstock = wooshstock;
+        document.getElementById('stock4').innerHTML = "Stock: " + localStorage.wooshstock;
+    });
+
+    console.log(localStorage.s21);
+    console.log(localStorage.charger)
+</script>
+</body>
+    
+
+</html>
