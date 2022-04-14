@@ -1,7 +1,3 @@
 
 # Design
-This file contains diagrams pertaining to the design of the project. This outlines how the project will be formatted and created.
-This includes:
-- [Class Sequence Diagram](Class_Sequence_Diagram.pdf) 
-- [System Sequence Diagram](System_Sequence_Diagram.pdf) 
--  [State Diagram](State_Diagram.pdf) 
+This file contains diagrams pertaining to the design of the project. This outlines how the project will be formatted and created. This includes a Class sequence diagram, a System sequnce diagram, and a state diagram. All decribing how the user would request a refund or cancel their order.
