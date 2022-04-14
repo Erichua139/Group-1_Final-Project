@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleSheet.css">
+    <style>
+        #OrderHistory
+        {
+        padding-top: 50px;
+        text-align: center;
+        }
+        * {
+        box-sizing: border-box;
+        }
+        #Items
+        {
+            background-color: lightgray;
+        }
+        #Checkout
+        {
+            background-color: grey;
+        }
+        #Order
+        {
+            max-width: 350px;
+            background-color: lightgray;
+        }
+
+    </style>
+<script src="javaScript.js"></script>
+</head>
+<body>
+    <! use this div for all webpages to for the top bar !>
+    <div id="navbar">
+        <a href="home.html">Home</a>
+        <a href="Cart.html">Cart</a>
+        <a href="OrderHistory.html">OrderHistory</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div id="OrderHistory">
+        <h1>Your Orders</h1>
+        <div id="Order" class="card">
+            <br>
+            <div id="item1" class="card" style="background-color: white;">
+                <h2>Samsung S21</h2>
+                <p id="quan1">$5.00 &emsp; Quantity: 2</p>
+                <p><button id="button1">Refund or Cancel</button></p>
+            </div>
+            <div id="item2" class="card" style="background-color: white;">
+                <h2>Wireless Charger</h2>
+                <p id="quan2">$5.00 &emsp; Quantity: 2</p>
+                <p><button id="button2">Refund or Cancel</button></p>
+            </div>
+            <div id="item3" class="card" style="background-color: white;">
+                <h2>Samsung S21 Case</h2>
+                <p id="quan3">$5.00 &emsp; Quantity: 2</p>
+                <p><button id="button3">Refund or Cancel</button></p>
+            </div>
+            <div id="item4" class="card" style="background-color: white;">
+                <h2>Woosh! Screen Cleaner</h2>
+                <p id="quan4">$5.00 &emsp; Quantity: 2</p>
+                <p><button id="button4">Refund or Cancel</button></p>
+            </div>
+            <p>Order Status</p>
+        </div>
+
+    <script type="text/javascript">
+
+        document.getElementById("item1").style.display = "none";
+        document.getElementById("item2").style.display = "none";
+        document.getElementById("item3").style.display = "none";
+        document.getElementById("item4").style.display = "none";
+
+        if (localStorage.checkedout == "true") {
+            s21purch = parseInt(localStorage.getItem('s21'));
+            chargerpurch = parseInt(localStorage.getItem('charger'));
+            s21casepurch = parseInt(localStorage.getItem('s21case'));
+            wooshpurch = parseInt(localStorage.getItem('woosh'));
+
+            s21stock = parseInt(localStorage.getItem('s21stock'));
+            chargerstock = parseInt(localStorage.getItem('chargerstock'));
+            s21casestock = parseInt(localStorage.getItem('s21casestock'));
+            wooshstock = parseInt(localStorage.getItem('wooshstock'));
+
+            if (s21purch >= 1) {
+                document.getElementById("item1").style.display = "block";
+            }
+            document.getElementById('quan1').innerHTML = "$899.99 &emsp; Quantity: " + s21purch;
+            if (chargerpurch >= 1) {
+                document.getElementById("item2").style.display = "block";
+            }
+            document.getElementById('quan2').innerHTML = "$19.99 &emsp; Quantity: " + chargerpurch;
+            if (s21casepurch >= 1) {
+                document.getElementById("item3").style.display = "block";
+            }
+            document.getElementById('quan3').innerHTML = "$9.99 &emsp; Quantity: " + s21casepurch;
+            if (wooshpurch >= 1) {
+                document.getElementById("item4").style.display = "block";
+            }
+            document.getElementById('quan4').innerHTML = "$25.99 &emsp; Quantity: " + wooshpurch;
+
+            document.getElementById("button1").addEventListener("click", function () {
+                s21purch -= 1;
+                s21stock += 1;
+                localStorage.s21 = s21purch;
+                localStorage.s21stock = s21stock;
+                document.getElementById('quan1').innerHTML = "$899.99 &emsp; Quantity: " + s21purch;
+            });
+            document.getElementById("button2").addEventListener("click", function () {
+                chargerpurch -= 1;
+                chargerstock += 1;
+                localStorage.charger = chargerpurch;
+                localStorage.chargerstock = chargerstock;
+                document.getElementById('quan2').innerHTML = "$19.99 &emsp; Quantity: " + chargerpurch;
+            });
+            document.getElementById("button3").addEventListener("click", function () {
+                s21casepurch -= 1;
+                s21casestock += 1;
+                localStorage.s21case = s21casepurch;
+                localStorage.s21casestock = s21casestock;
+                document.getElementById('quan3').innerHTML = "$9.99 &emsp; Quantity: " + s21casepurch;
+            });
+            document.getElementById("button4").addEventListener("click", function () {
+                wooshpurch -= 1;
+                wooshstock += 1;
+                localStorage.woosh = wooshpurch;
+                localStorage.wooshstock = wooshstock;
+                document.getElementById('quan4').innerHTML = "$25.99 &emsp; Quantity: " + wooshpurch;
+            });
+        }
+
+    </script>
+</body>
+</html>
